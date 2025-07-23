@@ -65,7 +65,7 @@ const RSVPSection = () => {
             {/* RSVP Button */}
             <div className="mb-8">
               <a
-                href="https://forms.google.com/your-rsvp-form-link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe15vjnpTmBOzz0x9c6Xg_JPyX1x7ayEoJdl1hpErcAOslXxw/viewform?usp=dialog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-secondary text-secondary-foreground px-8 py-4 rounded-lg text-xl font-bold hover:bg-secondary/90 transition-colors shadow-lg transform hover:scale-105"

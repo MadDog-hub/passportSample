@@ -13,6 +13,7 @@ import VideoSection from '@/components/VideoSection';
 import FAQSection from '@/components/FAQSection';
 import RSVPSection from '@/components/RSVPSection';
 import FooterSection from '@/components/FooterSection';
+import BackgroundMusicPlayer from '@/components/BackgroundMusicPlayer';
 
 const Index = () => {
   return (
@@ -32,6 +33,7 @@ const Index = () => {
       <FAQSection />
       <RSVPSection />
       <FooterSection />
+      <BackgroundMusicPlayer />
     </div>
   );
 };

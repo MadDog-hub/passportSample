@@ -66,12 +66,12 @@ const LocationSection = () => {
                 
                 {/* QR Codes for Navigation */}
                 <div className="flex gap-4">
-                  <button className="flex-1 bg-accent text-accent-foreground px-4 py-2 rounded text-sm font-semibold hover:bg-accent/90 transition-colors">
+                  <a href="https://maps.app.goo.gl/4CaZfzrmACm9fNP56" target="_blank" rel="noopener noreferrer" className="flex-1 bg-accent text-accent-foreground px-4 py-2 rounded text-sm font-semibold hover:bg-accent/90 transition-colors text-center">
                     📱 Open in Waze
-                  </button>
-                  <button className="flex-1 bg-secondary text-secondary-foreground px-4 py-2 rounded text-sm font-semibold hover:bg-secondary/90 transition-colors">
+                  </a>
+                  <a href="https://maps.app.goo.gl/4CaZfzrmACm9fNP56" target="_blank" rel="noopener noreferrer" className="flex-1 bg-secondary text-secondary-foreground px-4 py-2 rounded text-sm font-semibold hover:bg-secondary/90 transition-colors text-center">
                     🗺️ Google Maps
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -120,12 +120,12 @@ const LocationSection = () => {
                 
                 {/* QR Codes for Navigation */}
                 <div className="flex gap-4">
-                  <button className="flex-1 bg-accent text-accent-foreground px-4 py-2 rounded text-sm font-semibold hover:bg-accent/90 transition-colors">
+                  <a href="https://www.google.com/maps/place/1300+EDSA+Ext,+Pasay+City,+Metro+Manila/@14.5356427,120.9881854,17z/data=!3m1!4b1!4m6!3m5!1s0x3397c95774f2fac9:0x4f2777231191c227!8m2!3d14.5356427!4d120.9907603!16s%2Fg%2F11jsjhrmhh?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="flex-1 bg-accent text-accent-foreground px-4 py-2 rounded text-sm font-semibold hover:bg-accent/90 transition-colors text-center">
                     📱 Open in Waze
-                  </button>
-                  <button className="flex-1 bg-secondary text-secondary-foreground px-4 py-2 rounded text-sm font-semibold hover:bg-secondary/90 transition-colors">
+                  </a>
+                  <a href="https://www.google.com/maps/place/1300+EDSA+Ext,+Pasay+City,+Metro+Manila/@14.5356427,120.9881854,17z/data=!3m1!4b1!4m6!3m5!1s0x3397c95774f2fac9:0x4f2777231191c227!8m2!3d14.5356427!4d120.9907603!16s%2Fg%2F11jsjhrmhh?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="flex-1 bg-secondary text-secondary-foreground px-4 py-2 rounded text-sm font-semibold hover:bg-secondary/90 transition-colors text-center">
                     🗺️ Google Maps
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

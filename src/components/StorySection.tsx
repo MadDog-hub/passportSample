@@ -53,7 +53,7 @@ const StorySection = () => {
               <img 
                 src={groomImage} 
                 alt="Andrei - The Groom" 
-                className="w-full h-80 object-cover"
+                className="w-full h-96 object-contain bg-cream/20"
               />
               <div className="p-6">
                 <div className="passport-stamp inline-block mb-4">
@@ -73,7 +73,7 @@ const StorySection = () => {
               <img 
                 src={brideImage} 
                 alt="Ellise - The Bride" 
-                className="w-full h-80 object-cover"
+                className="w-full h-96 object-contain bg-cream/20"
               />
               <div className="p-6">
                 <div className="passport-stamp inline-block mb-4">
