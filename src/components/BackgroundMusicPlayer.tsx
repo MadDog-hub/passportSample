@@ -16,16 +16,38 @@ const BackgroundMusicPlayer = () => {
   const videoId = 'gxHHwoaZvyQ';
 
   useEffect(() => {
-    // Load the YouTube IFrame Player API
-    if (!window.YT) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+    // Check if YT API is already loaded
+    if (window.YT && window.YT.Player) {
+      initializePlayer();
+      return;
     }
 
-    window.onYouTubeIframeAPIReady = () => {
-      if (playerRef.current) {
+    // Load the YouTube IFrame Player API
+    const existingScript = document.querySelector('script[src*="youtube.com/iframe_api"]');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.src = 'https://www.youtube.com/iframe_api';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    // Set the callback for when API is ready
+    window.onYouTubeIframeAPIReady = initializePlayer;
+
+    return () => {
+      if (playerInstanceRef.current && typeof playerInstanceRef.current.destroy === 'function') {
+        try {
+          playerInstanceRef.current.destroy();
+        } catch (error) {
+          console.log('Error destroying YouTube player:', error);
+        }
+      }
+    };
+  }, []);
+
+  const initializePlayer = () => {
+    if (playerRef.current && !playerInstanceRef.current) {
+      try {
         playerInstanceRef.current = new window.YT.Player(playerRef.current, {
           height: '0',
           width: '0',
@@ -35,7 +57,8 @@ const BackgroundMusicPlayer = () => {
             'controls': 0,
             'loop': 1,
             'playlist': videoId,
-            'mute': 0
+            'mute': 0,
+            'enablejsapi': 1
           },
           events: {
             'onReady': () => {
@@ -47,42 +70,40 @@ const BackgroundMusicPlayer = () => {
               } else if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
                 setIsPlaying(false);
               }
+            },
+            'onError': (error: any) => {
+              console.log('YouTube player error:', error);
             }
           }
         });
+      } catch (error) {
+        console.log('Error initializing YouTube player:', error);
       }
-    };
-
-    // If YT is already loaded, initialize immediately
-    if (window.YT && window.YT.Player) {
-      window.onYouTubeIframeAPIReady();
     }
-
-    return () => {
-      if (playerInstanceRef.current) {
-        playerInstanceRef.current.destroy();
-      }
-    };
-  }, []);
+  };
 
   const handlePlayPause = () => {
     if (playerInstanceRef.current && isLoaded) {
-      if (isPlaying) {
-        playerInstanceRef.current.pauseVideo();
-      } else {
-        playerInstanceRef.current.playVideo();
+      try {
+        if (isPlaying) {
+          playerInstanceRef.current.pauseVideo();
+        } else {
+          playerInstanceRef.current.playVideo();
+        }
+      } catch (error) {
+        console.log('Error controlling YouTube player:', error);
       }
     }
   };
 
   return (
     <div className="fixed bottom-6 left-6 z-50">
-      <div className="bg-navy/90 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-gold/30">
+      <div className="bg-navy rounded-lg p-4 shadow-xl border-2 border-gold">
         {!isPlaying && (
           <button
             onClick={handlePlayPause}
             disabled={!isLoaded}
-            className="bg-gold text-navy px-4 py-2 rounded font-semibold text-sm hover:bg-gold/90 transition-colors disabled:opacity-50 mb-2 block"
+            className="bg-gold text-navy px-6 py-3 rounded-lg font-bold text-sm hover:bg-gold/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             🎵 Click it first before scrolling
           </button>
@@ -92,11 +113,11 @@ const BackgroundMusicPlayer = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={handlePlayPause}
-              className="bg-secondary text-secondary-foreground px-3 py-1 rounded text-sm font-semibold hover:bg-secondary/90 transition-colors"
+              className="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-colors"
             >
-              {isPlaying ? '⏸️ Pause' : '▶️ Play'}
+              ⏸️ Pause Music
             </button>
-            <span className="text-cream text-xs">Background Music</span>
+            <span className="text-cream text-sm font-medium">🎶 Playing</span>
           </div>
         )}
         
