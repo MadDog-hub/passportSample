@@ -26,12 +26,12 @@ const Index = () => {
       <TimelineSection />
       <DressCodeSection />
       <LocationSection />
+      <RSVPSection />
       <EntourageSection />
       <GiftSection />
       <GallerySection />
       <VideoSection />
       <FAQSection />
-      <RSVPSection />
       <FooterSection />
       <BackgroundMusicPlayer />
     </div>

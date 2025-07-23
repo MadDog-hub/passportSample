@@ -19,6 +19,11 @@ const VideoSection = () => {
           
           {/* Video Player */}
           <div className="relative vintage-card overflow-hidden">
+            {/* Stickers outside video */}
+            <div className="flex flex-col md:flex-row justify-between items-center mb-2 md:mb-4 gap-2 md:gap-0">
+              <div className="passport-stamp md:ml-4">PRENUP FILM</div>
+              <div className="passport-stamp md:mr-4">ANDREI & ELLISE</div>
+            </div>
             <div className="aspect-video bg-navy/10 border-4 border-dashed border-navy/20 relative">
               <video 
                 controls
@@ -31,19 +36,6 @@ const VideoSection = () => {
                 />
                 Your browser does not support the video tag.
               </video>
-              
-              {/* Passport Frame Decoration */}
-              <div className="absolute top-4 left-4">
-                <div className="passport-stamp">
-                  PRENUP FILM
-                </div>
-              </div>
-              
-              <div className="absolute bottom-4 right-4">
-                <div className="passport-stamp">
-                  ANDREI & ELLISE
-                </div>
-              </div>
             </div>
           </div>
           

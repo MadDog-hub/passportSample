@@ -1,4 +1,4 @@
-import coverImage from '@/assets/cover-image.jpg';
+const coverImage = 'https://res.cloudinary.com/dbiboclqa/image/upload/v1753243142/fa6c8f1cda5a508cbbefbeb08997477e_ac68my.jpg';
 
 const CoverSection = () => {
   return (

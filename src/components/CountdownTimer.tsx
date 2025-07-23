@@ -29,11 +29,14 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 gap-4 max-w-md mx-auto">
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xs sm:max-w-md mx-auto">
       {Object.entries(timeLeft).map(([unit, value]) => (
-        <div key={unit} className="text-center passport-stamp">
-          <div className="text-2xl md:text-3xl font-bold">{value}</div>
-          <div className="text-xs uppercase tracking-wider">{unit}</div>
+        <div
+          key={unit}
+          className="text-center passport-stamp min-w-[60px] sm:min-w-[80px] px-2 py-1 sm:px-4 sm:py-2 flex flex-col items-center justify-center"
+        >
+          <div className="text-lg sm:text-2xl md:text-3xl font-bold">{value}</div>
+          <div className="text-[10px] sm:text-xs uppercase tracking-wider">{unit}</div>
         </div>
       ))}
     </div>
